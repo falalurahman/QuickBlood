@@ -8,29 +8,15 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.tathva.falalurahman.quickblood.BloodDirectoryActivity"
     tools:showIn="@layout/app_bar_blood_directory">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select District"
-        android:id="@+id/textView"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:textColor="@color/colorPrimaryText"
-        android:paddingBottom="10dp"
-        android:textAlignment="center" />
     
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:paddingBottom="10dp"
             android:orientation="vertical">
             <LinearLayout
@@ -39,360 +25,285 @@
                 android:orientation="horizontal">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:clickable="true"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/kasargodPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Kasargod"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/kasargodPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kasargod"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/Kasargod"
+                        android:clickable="true"
+                        android:background="@drawable/overlay_button"
+                        android:text="Kasargod"
+                        android:textColor="#FFFFFF" />
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/kannurPic"
                     android:layout_weight="1"
                     android:clickable="true"
-                    android:id="@+id/Kannur"
-                    android:gravity="center"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
-
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/kannurPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kannur"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:id="@+id/Kannur"
+                        android:background="@drawable/overlay_button"
+                        android:text="Kannur"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/wayanadPic"
                     android:layout_weight="1"
-                    android:clickable="true"
                     android:gravity="center"
-                    android:id="@+id/Wayanad"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/wayanadPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Wayanad"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Wayanad"
+                        android:text="Wayanad"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/kozhikodePic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Kozhikode"
-                    android:clickable="true"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
-
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/kozhikodePic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kozhikode"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Kozhikode"
+                        android:text="Kozhikode"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/malappuramPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Malappuram"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:clickable="true"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/malappuramPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Malappuram"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Malappuram"
+                        android:text="Malappuram"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/palakkadPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Palakkad"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:clickable="true"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/palakkadPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Palakkad"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Palakkad"
+                        android:text="Palakkad"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/thrissurPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:clickable="true"
-                    android:id="@+id/Thrissur"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/thrissurPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thrissur"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Thrissur"
+                        android:text="Thrissur"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/ernakulamPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Ernakulam"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:clickable="true"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
-
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/ernakulamPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ernakulam"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Ernakulam"
+                        android:text="Ernakulam"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/idukkiPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Idukki"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:clickable="true"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/idukkiPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Idukki"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Idukki"
+                        android:text="Idukki"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/kottayamPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Kottayam"
-                    android:paddingLeft="5dp"
-                    android:clickable="true"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
-
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/kottayamPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kottayam"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Kottayam"
+                        android:text="Kottayam"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/alappuzhaPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Alappuzha"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:clickable="true"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/alappuzhaPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Alappuzha"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Alappuzha"
+                        android:text="Alappuzha"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/pathanamthittaPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Pathanamthitta"
-                    android:clickable="true"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
-
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/pathanamthittaPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pathanamthitta"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Pathanamthitta"
+                        android:text="Pathanamthitta"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="5dp">
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/kollamPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Kollam"
-                    android:clickable="true"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/kollamPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kollam"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Kollam"
+                        android:text="Kollam"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="190dp"
+                    android:id="@+id/thiruvananthapuramPic"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/Thiruvananthapuram"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:clickable="true"
-                    android:background="@drawable/round_rectangle_clickable"
-                    android:layout_marginLeft="16dp"
-
+                    android:layout_marginLeft="5dp"
                     android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:id="@+id/thiruvananthapuramPic"/>
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Thiruvananthapuram"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="@drawable/overlay_button"
+                        android:id="@+id/Thiruvananthapuram"
+                        android:text="Thiruvananthapuram"
+                        android:clickable="true"
+                        android:textColor="#FFFFFF" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

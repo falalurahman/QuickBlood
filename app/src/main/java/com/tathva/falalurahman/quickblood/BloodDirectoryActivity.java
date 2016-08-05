@@ -4,9 +4,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,49 +13,49 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 public class BloodDirectoryActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LinearLayout Kasargod;
-    LinearLayout Kannur;
-    LinearLayout Wayanad;
-    LinearLayout Kozhikode;
-    LinearLayout Malappuram;
-    LinearLayout Palakkad;
-    LinearLayout Thrissur;
-    LinearLayout Ernakulam;
-    LinearLayout Idukki;
-    LinearLayout Kottayam;
-    LinearLayout Alappuzha;
-    LinearLayout Pathanamthitta;
-    LinearLayout Kollam;
-    LinearLayout Thiruvananthapuram;
+    TextView Kasargod;
+    TextView Kannur;
+    TextView Wayanad;
+    TextView Kozhikode;
+    TextView Malappuram;
+    TextView Palakkad;
+    TextView Thrissur;
+    TextView Ernakulam;
+    TextView Idukki;
+    TextView Kottayam;
+    TextView Alappuzha;
+    TextView Pathanamthitta;
+    TextView Kollam;
+    TextView Thiruvananthapuram;
 
-    ImageView KasargodPic;
-    ImageView KannurPic;
-    ImageView WayanadPic;
-    ImageView KozhikodePic;
-    ImageView MalappuramPic;
-    ImageView PalakkadPic;
-    ImageView ThrissurPic;
-    ImageView ErnakulamPic;
-    ImageView IdukkiPic;
-    ImageView KottayamPic;
-    ImageView AlappuzhaPic;
-    ImageView PathanamthittaPic;
-    ImageView KollamPic;
-    ImageView ThiruvananthapuramPic;
+    LinearLayout KasargodPic;
+    LinearLayout KannurPic;
+    LinearLayout WayanadPic;
+    LinearLayout KozhikodePic;
+    LinearLayout MalappuramPic;
+    LinearLayout PalakkadPic;
+    LinearLayout ThrissurPic;
+    LinearLayout ErnakulamPic;
+    LinearLayout IdukkiPic;
+    LinearLayout KottayamPic;
+    LinearLayout AlappuzhaPic;
+    LinearLayout PathanamthittaPic;
+    LinearLayout KollamPic;
+    LinearLayout ThiruvananthapuramPic;
 
 
     @Override
@@ -96,20 +95,20 @@ public class BloodDirectoryActivity extends AppCompatActivity
                 .build();
         ImageLoader.getInstance().init(configuration);
 
-        Kasargod = (LinearLayout) findViewById(R.id.Kasargod);
-        Kannur = (LinearLayout) findViewById(R.id.Kannur);
-        Wayanad = (LinearLayout) findViewById(R.id.Wayanad);
-        Kozhikode = (LinearLayout) findViewById(R.id.Kozhikode);
-        Malappuram = (LinearLayout) findViewById(R.id.Malappuram);
-        Palakkad = (LinearLayout) findViewById(R.id.Palakkad);
-        Thrissur = (LinearLayout) findViewById(R.id.Thrissur);
-        Ernakulam = (LinearLayout) findViewById(R.id.Ernakulam);
-        Idukki = (LinearLayout) findViewById(R.id.Idukki);
-        Kottayam = (LinearLayout) findViewById(R.id.Kottayam);
-        Alappuzha = (LinearLayout) findViewById(R.id.Alappuzha);
-        Pathanamthitta = (LinearLayout) findViewById(R.id.Pathanamthitta);
-        Kollam = (LinearLayout) findViewById(R.id.Kollam);
-        Thiruvananthapuram = (LinearLayout) findViewById(R.id.Thiruvananthapuram);
+        Kasargod = (TextView) findViewById(R.id.Kasargod);
+        Kannur = (TextView) findViewById(R.id.Kannur);
+        Wayanad = (TextView) findViewById(R.id.Wayanad);
+        Kozhikode = (TextView) findViewById(R.id.Kozhikode);
+        Malappuram = (TextView) findViewById(R.id.Malappuram);
+        Palakkad = (TextView) findViewById(R.id.Palakkad);
+        Thrissur = (TextView) findViewById(R.id.Thrissur);
+        Ernakulam = (TextView) findViewById(R.id.Ernakulam);
+        Idukki = (TextView) findViewById(R.id.Idukki);
+        Kottayam = (TextView) findViewById(R.id.Kottayam);
+        Alappuzha = (TextView) findViewById(R.id.Alappuzha);
+        Pathanamthitta = (TextView) findViewById(R.id.Pathanamthitta);
+        Kollam = (TextView) findViewById(R.id.Kollam);
+        Thiruvananthapuram = (TextView) findViewById(R.id.Thiruvananthapuram);
 
         Kasargod.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,35 +237,315 @@ public class BloodDirectoryActivity extends AppCompatActivity
             }
         });
 
-        KasargodPic = (ImageView) findViewById(R.id.kasargodPic);
-        KannurPic = (ImageView) findViewById(R.id.kannurPic);
-        WayanadPic = (ImageView) findViewById(R.id.wayanadPic);
-        KozhikodePic = (ImageView) findViewById(R.id.kozhikodePic);
-        MalappuramPic = (ImageView) findViewById(R.id.malappuramPic);
-        PalakkadPic = (ImageView) findViewById(R.id.palakkadPic);
-        ThrissurPic = (ImageView) findViewById(R.id.thrissurPic);
-        ErnakulamPic = (ImageView) findViewById(R.id.ernakulamPic);
-        IdukkiPic = (ImageView) findViewById(R.id.idukkiPic);
-        KottayamPic = (ImageView) findViewById(R.id.kottayamPic);
-        AlappuzhaPic = (ImageView) findViewById(R.id.alappuzhaPic);
-        PathanamthittaPic = (ImageView) findViewById(R.id.pathanamthittaPic);
-        KollamPic = (ImageView) findViewById(R.id.kollamPic);
-        ThiruvananthapuramPic = (ImageView) findViewById(R.id.thiruvananthapuramPic);
+        KasargodPic = (LinearLayout) findViewById(R.id.kasargodPic);
+        KannurPic = (LinearLayout) findViewById(R.id.kannurPic);
+        WayanadPic = (LinearLayout) findViewById(R.id.wayanadPic);
+        KozhikodePic = (LinearLayout) findViewById(R.id.kozhikodePic);
+        MalappuramPic = (LinearLayout) findViewById(R.id.malappuramPic);
+        PalakkadPic = (LinearLayout) findViewById(R.id.palakkadPic);
+        ThrissurPic = (LinearLayout) findViewById(R.id.thrissurPic);
+        ErnakulamPic = (LinearLayout) findViewById(R.id.ernakulamPic);
+        IdukkiPic = (LinearLayout) findViewById(R.id.idukkiPic);
+        KottayamPic = (LinearLayout) findViewById(R.id.kottayamPic);
+        AlappuzhaPic = (LinearLayout) findViewById(R.id.alappuzhaPic);
+        PathanamthittaPic = (LinearLayout) findViewById(R.id.pathanamthittaPic);
+        KollamPic = (LinearLayout) findViewById(R.id.kollamPic);
+        ThiruvananthapuramPic = (LinearLayout) findViewById(R.id.thiruvananthapuramPic);
 
-        ImageLoader.getInstance().displayImage("assets://kasargod.png", KasargodPic);
-        ImageLoader.getInstance().displayImage("assets://kannur.png", KannurPic);
-        ImageLoader.getInstance().displayImage("assets://wayanad.png", WayanadPic);
-        ImageLoader.getInstance().displayImage("assets://kozhikode.png", KozhikodePic);
-        ImageLoader.getInstance().displayImage("assets://malappuram.png", MalappuramPic);
-        ImageLoader.getInstance().displayImage("assets://palakkad.png", PalakkadPic);
-        ImageLoader.getInstance().displayImage("assets://thrissur.png", ThrissurPic);
-        ImageLoader.getInstance().displayImage("assets://ernakulam.png", ErnakulamPic);
-        ImageLoader.getInstance().displayImage("assets://idukki.png", IdukkiPic);
-        ImageLoader.getInstance().displayImage("assets://kottayam.png", KottayamPic);
-        ImageLoader.getInstance().displayImage("assets://alappuzha.png", AlappuzhaPic);
-        ImageLoader.getInstance().displayImage("assets://pathanamthitta.png", PathanamthittaPic);
-        ImageLoader.getInstance().displayImage("assets://kollam.png", KollamPic);
-        ImageLoader.getInstance().displayImage("assets://thiruvananthapuram.png", ThiruvananthapuramPic);
+        ImageLoader.getInstance().loadImage("assets://kasargod.jpg", new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                KasargodPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://kannur.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                KannurPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://wayanad.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                WayanadPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://kozhikode.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                KozhikodePic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://malappuram.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                MalappuramPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://palakkad.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                PalakkadPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://thrissur.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                ThrissurPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://ernakulam.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                ErnakulamPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://idukki.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                IdukkiPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://kottayam.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                KottayamPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://alappuzha.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                AlappuzhaPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://pathanamthitta.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                PathanamthittaPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://kollam.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                KollamPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        ImageLoader.getInstance().loadImage("assets://thiruvananthapuram.jpg",  new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                ThiruvananthapuramPic.setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
 
     }
 
