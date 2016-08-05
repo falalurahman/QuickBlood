@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:paddingBottom="16dp"
+    android:background="#F5F5F5"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove Image"
+        android:textSize="21dp"
+        android:textStyle="bold"
+        android:id="@+id/DialogTitle"
+        android:typeface="sans"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/colorPrimaryText"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DialogTitle"
+        android:layout_marginTop="10dp"
+        android:text="Do you want to remove this image?"
+        android:textSize="15dp"
+        android:id="@+id/DialogMessage"
+        android:typeface="sans"
+        android:textColor="@color/colorSecondaryText"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DialogMessage"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Cancel"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/Confirm"
+            android:text="CANCEL"
+            android:typeface="sans"
+            android:textSize="13dp"
+            android:padding="10dp"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/dialog_buttons" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_height="wrap_content"
+            android:id="@+id/Confirm"
+            android:clickable="true"
+            android:textAlignment="center"
+            android:text="CONFIRM"
+            android:typeface="sans"
+            android:textSize="13dp"
+            android:textColor="@color/colorPrimary"
+            android:padding="10dp"
+            android:background="@drawable/dialog_buttons" />
+    </RelativeLayout>
+</RelativeLayout>

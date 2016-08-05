@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Quick Blood</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="facebook_app_id">1593238024307910</string>
+    <string name="action_settings">Settings</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="new_post_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/newPost.php</string>
+    <string name="get_post_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/getPosts.php</string>
+    <string name="get_old_post_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/getOldPosts.php</string>
+    <string name="upload_blood_donor_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/uploadDonor.php</string>
+    <string name="delete_blood_donor_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/deleteDonor.php</string>
+    <string name="get_donors_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/getDonors.php</string>
+    <string name="upload_blood_request_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/uploadRequest.php</string>
+    <string name="delete_blood_request_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/deleteRequest.php</string>
+    <string name="get_requests_url">http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/getRequests.php</string>
+
+    <array name="blood_group_array">
+        <item>A +ve</item>
+        <item>A -ve</item>
+        <item>B +ve</item>
+        <item>B -ve</item>
+        <item>O +ve</item>
+        <item>O -ve</item>
+        <item>AB +ve</item>
+        <item>AB -ve</item>
+    </array>
+    <array name="district_array">
+        <item>Kasargod</item>
+        <item>Kannur</item>
+        <item>Wayanad</item>
+        <item>Kozhikode</item>
+        <item>Malappuram</item>
+        <item>Palakkad</item>
+        <item>Thrissur</item>
+        <item>Ernakulam</item>
+        <item>Idukki</item>
+        <item>Kottayam</item>
+        <item>Alappuzha</item>
+        <item>Pathanamthitta</item>
+        <item>Kollam</item>
+        <item>Thiruvananthapuram</item>
+    </array>
+    <string name="title_activity_admin_login">Admin Login</string>
+    <string name="title_activity_home">QuickBlood</string>
+    <string name="title_activity_new_post">Post to Quick Blood</string>
+    <string name="title_activity_blood_donors">Blood Donors</string>
+    <string name="title_activity_register_donor">Register Donor</string>
+    <string name="title_activity_edit_blood_donors">Edit Blood Donors Details</string>
+    <string name="title_activity_blood_directory">Blood Directory</string>
+    <string name="title_activity_view_directory">Blood Directory</string>
+    <string name="title_activity_blood_requests">Blood Requests</string>
+    <string name="title_activity_blood_details">Blood Details</string>
+    <string name="title_activity_notifications">Notifications</string>
+    <string name="title_activity_landing">QuickBlood</string>
+    <string name="title_activity_share">Share</string>
+    <string name="title_activity_blood_donation">Blood Donors Kerala</string>
+    <string name="title_activity_about_us">About Us</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>

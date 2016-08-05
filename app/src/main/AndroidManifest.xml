@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tathva.falalurahman.quickblood">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NewPostActivity"
+            android:label="@string/title_activity_new_post"
+            android:parentActivityName=".HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tathva.falalurahman.quickblood.HomeActivity" />
+        </activity>
+
+        <provider
+            android:name=".DatabaseContentProvider"
+            android:authorities="com.tathva.falalurahman.quickblood.contentprovider" />
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1593238024307910"
+            android:exported="true" />
+
+        <service
+            android:name=".NewPostService"
+            android:exported="false" />
+        <service
+            android:name=".OldPostService"
+            android:exported="false" />
+
+        <activity
+            android:name=".AdminLoginActivity"
+            android:label="@string/title_activity_admin_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BloodDonorsActivity"
+            android:label="@string/title_activity_blood_donors"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".RegisterDonor"
+            android:label="@string/title_activity_register_donor"
+            android:parentActivityName=".BloodDonorsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tathva.falalurahman.quickblood.BloodDonorsActivity" />
+        </activity>
+        <activity
+            android:name=".EditBloodDonorsActivity"
+            android:label="@string/title_activity_edit_blood_donors"
+            android:parentActivityName=".BloodDonorsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tathva.falalurahman.quickblood.BloodDonorsActivity" />
+        </activity>
+
+        <service
+            android:name=".UploadBloodDonorService"
+            android:exported="false" />
+        <service
+            android:name=".DownloadDirectoryService"
+            android:exported="false" />
+
+        <activity
+            android:name=".BloodDirectoryActivity"
+            android:label="@string/title_activity_blood_directory"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewDirectoryActivity"
+            android:label="@string/title_activity_view_directory"
+            android:parentActivityName=".BloodDirectoryActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tathva.falalurahman.quickblood.BloodDirectoryActivity" />
+        </activity>
+        <activity
+            android:name=".BloodRequestsActivity"
+            android:label="@string/title_activity_blood_requests"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BloodDetails"
+            android:label="@string/title_activity_blood_details"
+            android:parentActivityName=".BloodRequestsActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.tathva.falalurahman.quickblood.BloodRequestsActivity" />
+        </activity>
+
+        <service
+            android:name=".UploadRequestService"
+            android:exported="false" />
+
+        <activity
+            android:name=".NotificationsActivity"
+            android:label="@string/title_activity_notifications"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".DownloadRequestService"
+            android:exported="false" />
+
+        <receiver
+            android:name=".NetworkChangeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".LandingActivity"
+            android:label="@string/title_activity_landing"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ShareActivity"
+            android:label="@string/title_activity_share"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".BloodDonationActivity"
+            android:label="@string/title_activity_blood_donation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:label="@string/title_activity_about_us"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Delete"
+        android:icon="@drawable/ic_delete_black_36dp"
+        android:title="Delete"/>
+    <item
+        android:id="@+id/Edit"
+        android:icon="@drawable/ic_edit_black_36dp"
+        android:title="Edit"/>
+    <item
+        android:id="@+id/Public"
+        android:icon="@drawable/ic_public_black_36dp"
+        android:title="Set As Public"/>
+    <item
+        android:id="@+id/Private"
+        android:icon="@drawable/ic_person_black_36dp"
+        android:title="Set As Private"/>
+    <item
+        android:id="@+id/Default"
+        android:icon="@drawable/ic_home_black_36dp"
+        android:title="Set As Default"/>
+</menu>

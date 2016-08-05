@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B02727</color>
+    <color name="colorPrimaryDark">#910000</color>
+    <color name="colorPrimaryLight">#FFCDD2</color>
+    <color name="colorBackground">#EDEDED</color>
+    <color name="colorAccent">#d32f2f</color>
+    <color name="colorPrimaryText">#212121</color>
+    <color name="colorSecondaryText">#696969</color>
+    <color name="colorTertiaryText">#A3A3A3</color>
+    <color name="colorIcons">#FFFFFF</color>
+    <color name="colorDivider">#B6B6B6</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="colorTextOnButton">#FFFFFF</color>
+</resources>
+

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:background="#F5F5F5"
+    android:layout_height="wrap_content">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingBottom="16dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter Blood Group"
+                android:textSize="21dp"
+                android:textStyle="bold"
+                android:id="@+id/DialogTitle"
+                android:typeface="sans"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/colorPrimaryText"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/DialogTitle"
+                android:layout_marginTop="10dp"
+                android:text="Choose Blood Groups to show:"
+                android:textSize="15dp"
+                android:id="@+id/DialogMessage"
+                android:typeface="sans"
+                android:textColor="@color/colorSecondaryText"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_below="@id/DialogMessage"
+                android:id="@+id/Checkboxes">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Ap"
+                        android:text="A +ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/An"
+                        android:text="A -ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Bp"
+                        android:text="B +ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Bn"
+                        android:text="B -ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Op"
+                        android:text="O +ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/On"
+                        android:text="O -ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ABp"
+                        android:text="AB +ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                    <CheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ABn"
+                        android:text="AB -ve"
+                        android:textSize="18dp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Checkboxes"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentRight="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Cancel"
+                    android:clickable="true"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/Filter"
+                    android:text="CANCEL"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+                    android:padding="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/dialog_buttons" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Filter"
+                    android:clickable="true"
+                    android:text="FILTER"
+                    android:typeface="sans"
+                    android:textSize="13dp"
+                    android:textColor="@color/colorPrimary"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="20dp"
+                    android:paddingLeft="20dp"
+                    android:background="@drawable/dialog_buttons" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
