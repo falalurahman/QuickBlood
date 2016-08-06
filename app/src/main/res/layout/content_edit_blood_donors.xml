@@ -59,6 +59,76 @@
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/dob_picker"
+                    android:layout_alignTop="@+id/dob_picker"
+                    android:id="@+id/dobPic"
+                    android:src="@drawable/ic_person_black_36dp"/>
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dob_picker"
+                    android:hint="Date Of Birth"
+                    android:layout_toRightOf="@+id/dobPic"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:nextFocusDown="@+id/weight_edit_text"
+                    android:imeOptions="actionNext"
+                    app:met_floatingLabel="highlight"
+                    app:met_baseColor="@color/colorPrimary"
+                    app:met_primaryColor="@color/colorPrimary"
+                    app:met_errorColor="@color/colorAccent" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/weight_edit_text"
+                    android:layout_alignTop="@+id/weight_edit_text"
+                    android:id="@+id/weightPic"
+                    android:src="@drawable/weight"/>
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:inputType="number"
+                    android:id="@+id/weight_edit_text"
+                    android:hint="Weight"
+                    app:met_floatingLabel="highlight"
+                    app:met_minCharacters="1"
+                    app:met_baseColor="@color/colorPrimary"
+                    app:met_primaryColor="@color/colorPrimaryDark"
+                    app:met_errorColor="@color/colorAccent"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/unit"
+                    android:layout_toRightOf="@+id/weightPic"
+                    android:nextFocusDown="@+id/phone_number_edit_text"
+                    android:layout_marginLeft="5dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kgs"
+                    android:textSize="30dp"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/unit"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/phone_number_edit_text"
                     android:layout_alignTop="@+id/phone_number_edit_text"
                     android:id="@+id/phonePic"
@@ -177,6 +247,33 @@
                     android:singleLine="true"
                     android:nextFocusDown="@+id/contactInfoRadioGroup"
                     android:imeOptions="actionNext"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ld_picker"
+                    android:layout_alignTop="@+id/ld_picker"
+                    android:id="@+id/lastDonatedPic"
+                    android:src="@drawable/blood_donors"/>
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ld_picker"
+                    android:hint="Last Blood Donated"
+                    android:layout_toRightOf="@+id/lastDonatedPic"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:nextFocusDown="@+id/contactInfoRadioGroup"
+                    android:imeOptions="actionNext"
+                    app:met_floatingLabel="highlight"
+                    app:met_baseColor="@color/colorPrimary"
+                    app:met_primaryColor="@color/colorPrimary"
+                    app:met_errorColor="@color/colorAccent" />
             </RelativeLayout>
             <TextView
                 android:layout_width="wrap_content"

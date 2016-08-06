@@ -41,12 +41,14 @@ public class UploadBloodDonorService extends IntentService {
         if(cursor != null) {
             while (cursor.moveToNext()){
                 final String Name = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_NAME));
+                final String DateOfBirth = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_DATEOFBIRTH));
+                final String Weight = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_WEIGHT));
                 final String PhoneNumber = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_PHONENUMBER));
                 final String Email = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_EMAIL));
                 final String BloodGroup = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_BLOODGROUP));
                 final String District = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_DISTRICT));
                 final String isPublic = Integer.toString(cursor.getInt(cursor.getColumnIndex(TableBloodDonor.COLUMN_ISPUBLIC)));
-                final String BloodDonatedTime = Integer.toString(cursor.getInt(cursor.getColumnIndex(TableBloodDonor.COLUMN_BLOODDONATEDTIME)));
+                final String BloodDonatedTime = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_BLOODDONATEDTIME));
                 Log.i("QB",Name);
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,getString(R.string.upload_blood_donor_url),
                         new Response.Listener<String>() {
@@ -82,6 +84,8 @@ public class UploadBloodDonorService extends IntentService {
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String, String> params = new Hashtable<>();
                         params.put("Name",Name);
+                        params.put("DateOfBirth",DateOfBirth);
+                        params.put("Weight",Weight);
                         params.put("PhoneNumber",PhoneNumber);
                         params.put("Email", Email);
                         params.put("BloodGroup",BloodGroup);

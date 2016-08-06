@@ -25,6 +25,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -40,6 +42,8 @@ public class BloodDonorsAdapter extends CursorAdapter{
     @Override
     public void bindView(final View customView, final Context context, final Cursor cursor) {
         TextView NameTextView = (TextView) customView.findViewById(R.id.name_textview);
+        TextView DOBTextView = (TextView) customView.findViewById(R.id.dob_textview);
+        TextView WeightTextView = (TextView) customView.findViewById(R.id.weight_textview);
         TextView PhoneNumberTextView = (TextView) customView.findViewById(R.id.phonenumber_textview);
         TextView EmailTextView = (TextView) customView.findViewById(R.id.email_textview);
         TextView EmailHeading = (TextView) customView.findViewById(R.id.emailHeading);
@@ -53,6 +57,12 @@ public class BloodDonorsAdapter extends CursorAdapter{
         final ImageView PopUp = (ImageView) customView.findViewById(R.id.PopUp);
 
         NameTextView.setText(cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_NAME)));
+        WeightTextView.setText(Integer.toString(cursor.getInt(cursor.getColumnIndex(TableBloodDonor.COLUMN_WEIGHT))) + " Kgs");
+        DateFormat dateFormat1 = new SimpleDateFormat("EEE, dd MMM yyyy");
+        Long DateOfBirth = Long.parseLong(cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_DATEOFBIRTH)));
+        Calendar calendar1 = Calendar.getInstance();
+        calendar1.setTimeInMillis(DateOfBirth);
+        DOBTextView.setText(dateFormat1.format(calendar1.getTime()));
         final String PhoneNumber = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_PHONENUMBER));
         PhoneNumberTextView.setText(PhoneNumber);
         final String email = cursor.getString(cursor.getColumnIndex(TableBloodDonor.COLUMN_EMAIL));

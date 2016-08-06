@@ -6,6 +6,8 @@ public class TableBloodDonor {
     public static final String TABLE_NAME = "BloodDonors";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "Name";
+    public static final String COLUMN_DATEOFBIRTH = "DateOfBirth";
+    public static final String COLUMN_WEIGHT = "Weight";
     public static final String COLUMN_PHONENUMBER = "PhoneNumber";
     public static final String COLUMN_EMAIL = "Email";
     public static final String COLUMN_BLOODGROUP = "BloodGroup";
@@ -21,6 +23,8 @@ public class TableBloodDonor {
                 + "( "
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + COLUMN_NAME + " TEXT NOT NULL, "
+                + COLUMN_DATEOFBIRTH + " TEXT NOT NULL, "
+                + COLUMN_WEIGHT + " INT NOT NULL, "
                 + COLUMN_PHONENUMBER + " TEXT NOT NULL, "
                 + COLUMN_EMAIL + " TEXT, "
                 + COLUMN_BLOODGROUP + " TEXT NOT NULL, "

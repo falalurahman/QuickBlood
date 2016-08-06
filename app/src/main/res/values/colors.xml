@@ -12,5 +12,7 @@
     <color name="colorDivider">#B6B6B6</color>
     <color name="black_overlay">#66000000</color>
     <color name="colorTextOnButton">#FFFFFF</color>
+    <color name="mdtp_accent_color">#d32f2f</color>
+    <color name="mdtp_accent_color_dark">#c21e1e</color>
 </resources>
 

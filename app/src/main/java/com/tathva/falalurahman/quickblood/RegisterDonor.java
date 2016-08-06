@@ -1,12 +1,9 @@
 package com.tathva.falalurahman.quickblood;
 
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PatternMatcher;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -19,28 +16,34 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
+import java.util.Calendar;
 import java.util.regex.Pattern;
 
 public class RegisterDonor extends AppCompatActivity {
 
     MaterialEditText nameEditText;
+    MaterialEditText weightEditText;
     MaterialEditText phoneNumberEditText;
     MaterialEditText emailEditText;
+    MaterialEditText dobPicker;
+    MaterialEditText lastDonatedPicker;
     MaterialBetterSpinner bloodGroupSpinner;
     MaterialBetterSpinner districtSpinner;
     Button signUpButton;
     RadioGroup ContactInfoRadioGroup;
 
-    String name, phoneNumber, email, bloodGroup, district;
-    boolean nameError=true, phoneNumberError=true, bloodGroupError=true, districtError=true, emailError = false;
+    String name, phoneNumber, email, bloodGroup, district, weight;
+    Calendar dob, lastDonated;
+    boolean nameError=true, phoneNumberError=true, bloodGroupError=true, districtError=true, emailError = false, dobError = true, weightError = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_donor);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -88,6 +91,159 @@ public class RegisterDonor extends AppCompatActivity {
             }
         });
 
+        dobPicker = (MaterialEditText) findViewById(R.id.dob_picker);
+        dobPicker.setError("Select Your Date Of Birth");
+        dob = Calendar.getInstance();
+        dob.setTimeInMillis(0);
+        dobPicker.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    Calendar calendar = Calendar.getInstance();
+                    DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(
+                            new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                                    dobPicker.setText(Integer.toString(dayOfMonth)+" / "+Integer.toString(monthOfYear+1)+" / "+Integer.toString(year));
+                                    dobError = false;
+                                    dob = Calendar.getInstance();
+                                    dob.set(Calendar.YEAR,year);
+                                    dob.set(Calendar.MONTH,monthOfYear);
+                                    dob.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                                    dob.set(Calendar.HOUR_OF_DAY,0);
+                                    dob.set(Calendar.MINUTE,0);
+                                    dob.set(Calendar.SECOND,0);
+                                    dob.set(Calendar.MILLISECOND,0);
+                                }
+                            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
+                    );
+                    datePickerDialog.vibrate(false);
+                    datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            weightEditText.requestFocus();
+                            if(dobPicker.getText().equals("")){
+                                dobPicker.setError("Select Your Date Of Birth");
+                                dobError = true;
+                                dob = Calendar.getInstance();
+                                dob.setTimeInMillis(0);
+                            }
+                        }
+                    });
+                    datePickerDialog.show(getFragmentManager(),"DatePickerDialog");
+                }
+            }
+        });
+        dobPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                                dobPicker.setText(Integer.toString(dayOfMonth)+" / "+Integer.toString(monthOfYear+1)+" / "+Integer.toString(year));
+                                dobError = false;
+                                dob = Calendar.getInstance();
+                                dob.set(Calendar.YEAR,year);
+                                dob.set(Calendar.MONTH,monthOfYear);
+                                dob.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                                dob.set(Calendar.HOUR_OF_DAY,0);
+                                dob.set(Calendar.MINUTE,0);
+                                dob.set(Calendar.SECOND,0);
+                                dob.set(Calendar.MILLISECOND,0);
+                            }
+                        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
+                );
+                datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        weightEditText.requestFocus();
+                        if(dobPicker.getText().equals("")){
+                            dobPicker.setError("Select Your Date Of Birth");
+                            dobError = true;
+                            dob = Calendar.getInstance();
+                            dob.setTimeInMillis(0);
+                        }
+                    }
+                });
+                datePickerDialog.vibrate(false);
+                datePickerDialog.show(getFragmentManager(),"DatePickerDialog");
+            }
+        });
+
+        lastDonatedPicker = (MaterialEditText) findViewById(R.id.ld_picker);
+        lastDonated = Calendar.getInstance();
+        lastDonated.setTimeInMillis(0);
+        lastDonatedPicker.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus){
+                    Calendar calendar = Calendar.getInstance();
+                    DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(
+                            new DatePickerDialog.OnDateSetListener() {
+                                @Override
+                                public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                                    lastDonatedPicker.setText(Integer.toString(dayOfMonth)+" / "+Integer.toString(monthOfYear+1)+" / "+Integer.toString(year));
+                                    lastDonated = Calendar.getInstance();
+                                    lastDonated.set(Calendar.YEAR,year);
+                                    lastDonated.set(Calendar.MONTH,monthOfYear);
+                                    lastDonated.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                                    lastDonated.set(Calendar.HOUR_OF_DAY,0);
+                                    lastDonated.set(Calendar.MINUTE,0);
+                                    lastDonated.set(Calendar.SECOND,0);
+                                    lastDonated.set(Calendar.MILLISECOND,0);
+                                }
+                            }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
+                    );
+                    datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            ContactInfoRadioGroup.requestFocus();
+                            lastDonatedPicker.setText("");
+                            lastDonated = Calendar.getInstance();
+                            lastDonated.setTimeInMillis(0);
+                        }
+                    });
+                    datePickerDialog.vibrate(false);
+                    datePickerDialog.show(getFragmentManager(),"DatePickerDialog");
+                }
+            }
+        });
+        lastDonatedPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+                                lastDonatedPicker.setText(Integer.toString(dayOfMonth)+" / "+Integer.toString(monthOfYear+1)+" / "+Integer.toString(year));
+                                lastDonated = Calendar.getInstance();
+                                lastDonated.set(Calendar.YEAR,year);
+                                lastDonated.set(Calendar.MONTH,monthOfYear);
+                                lastDonated.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                                lastDonated.set(Calendar.HOUR_OF_DAY,0);
+                                lastDonated.set(Calendar.MINUTE,0);
+                                lastDonated.set(Calendar.SECOND,0);
+                                lastDonated.set(Calendar.MILLISECOND,0);
+                            }
+                        }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
+                );
+                datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        ContactInfoRadioGroup.requestFocus();
+                        lastDonatedPicker.setText("");
+                        lastDonated = Calendar.getInstance();
+                        lastDonated.setTimeInMillis(0);
+                    }
+                });
+                datePickerDialog.vibrate(false);
+                datePickerDialog.show(getFragmentManager(),"DatePickerDialog");
+            }
+        });
+
         nameEditText = (MaterialEditText) findViewById(R.id.name_edit_text);
         nameEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -101,6 +257,21 @@ public class RegisterDonor extends AppCompatActivity {
                         nameEditText.setError("Invalid Name");
                     }else {
                         nameError=false;
+                    }
+                }
+            }
+        });
+
+        weightEditText = (MaterialEditText) findViewById(R.id.weight_edit_text);
+        weightEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    weight = weightEditText.getText().toString();
+                    if(weight.length()==0) {
+                        weightError=true;
+                    }else {
+                        weightError=false;
                     }
                 }
             }
@@ -183,7 +354,21 @@ public class RegisterDonor extends AppCompatActivity {
                     districtError=true;
                     districtSpinner.setError("Select District");
                 }
-                if(!nameError && !phoneNumberError && !emailError && !bloodGroupError && !districtError){
+                String dobString="0", lastDonatedString;
+                if(!dobError){
+                    dobString = Long.toString(dob.getTimeInMillis());
+                }else {
+                    dobError = true;
+                    dobPicker.setError("Select Your Date Of Birth");
+                }
+                if(!weightError){
+                    weight = weightEditText.getText().toString();
+                }else {
+                    weightError = true;
+                    weightEditText.setError("Enter Your Weight");
+                }
+                lastDonatedString = Long.toString(lastDonated.getTimeInMillis());
+                if(!nameError && !phoneNumberError && !emailError && !bloodGroupError && !districtError && !weightError && !dobError){
                     int radioButtonId = ContactInfoRadioGroup.getCheckedRadioButtonId();
                     ContentValues contentValues = new ContentValues();
                     switch (radioButtonId){
@@ -197,12 +382,14 @@ public class RegisterDonor extends AppCompatActivity {
                             Log.e("QB","Invalid Choice");
                     }
                     contentValues.put("Name",name);
+                    contentValues.put("DateOfBirth",dobString);
+                    contentValues.put("Weight",Integer.parseInt(weight));
                     contentValues.put("PhoneNumber",phoneNumber);
                     contentValues.put("Email",email);
                     contentValues.put("BloodGroup",bloodGroup);
                     contentValues.put("District",district);
                     contentValues.put("isUploaded",0);
-                    contentValues.put("BloodDonatedTime","0");
+                    contentValues.put("BloodDonatedTime",lastDonatedString);
                     contentValues.put("isDefault",0);
                     getContentResolver().insert(DatabaseContentProvider.BLOODDONORS_URI,contentValues);
                     Intent intent = new Intent(RegisterDonor.this,UploadBloodDonorService.class);

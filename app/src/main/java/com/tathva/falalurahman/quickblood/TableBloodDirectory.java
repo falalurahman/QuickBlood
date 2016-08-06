@@ -12,8 +12,6 @@ public class TableBloodDirectory {
     public static final String COLUMN_EMAIL = "Email";
     public static final String COLUMN_BLOODGROUP = "BloodGroup";
     public static final String COLUMN_DISTRICT = "District";
-    public static final String COLUMN_ISPUBLIC = "isPublic";
-    public static final String COLUMN_BLOODDONATEDTIME = "BloodDonatedTime";
 
     public static void onCreate(SQLiteDatabase sqLiteDatabase){
         String query = "CREATE TABLE "

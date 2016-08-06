@@ -87,10 +87,7 @@ public class BloodDonorsActivity extends AppCompatActivity
         loaderCallbacks = new LoaderManager.LoaderCallbacks<Cursor>() {
             @Override
             public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-                String[] projection = {TableBloodDonor.COLUMN_ID,TableBloodDonor.COLUMN_NAME,TableBloodDonor.COLUMN_PHONENUMBER,TableBloodDonor.COLUMN_EMAIL,
-                        TableBloodDonor.COLUMN_DISTRICT,TableBloodDonor.COLUMN_BLOODGROUP,TableBloodDonor.COLUMN_BLOODDONATEDTIME,
-                        TableBloodDonor.COLUMN_ISPUBLIC,TableBloodDonor.COLUMN_DEFAULT};
-                CursorLoader cursorLoader = new CursorLoader(BloodDonorsActivity.this,DatabaseContentProvider.BLOODDONORS_URI,projection,TableBloodDonor.COLUMN_ISUPLOADED + "!=2" ,null,null);
+                CursorLoader cursorLoader = new CursorLoader(BloodDonorsActivity.this,DatabaseContentProvider.BLOODDONORS_URI,null,TableBloodDonor.COLUMN_ISUPLOADED + "!=2" ,null,null);
                 return cursorLoader;
             }
 
