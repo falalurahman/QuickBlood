@@ -36,11 +36,9 @@
 
                 <TextView
                     android:layout_width="180dp"
-                    android:gravity="center"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Blood Request Details"
-                    android:textAlignment="textStart"
                     android:layout_gravity="center"
                     android:id="@+id/textView2"
                     android:textSize="25dp"
@@ -260,7 +258,8 @@
                     android:layout_toRightOf="@+id/quantityPic"
                     android:layout_marginLeft="5dp"
                     android:singleLine="true"
-                    android:imeOptions="actionDone"/>
+                    android:imeOptions="actionNext"
+                    android:nextFocusDown="@+id/details_edit_text"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -271,6 +270,33 @@
                     android:layout_alignParentRight="true"
                     android:id="@+id/unit"
                     />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/detailsPic"
+                    android:src="@drawable/ic_directions_black_36dp"/>
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/details_edit_text"
+                    android:hint="Other Details"
+                    android:layout_toRightOf="@+id/detailsPic"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="5dp"
+                    android:imeOptions="actionDone"
+                    app:met_floatingLabel="highlight"
+                    app:met_baseColor="@color/colorPrimary"
+                    app:met_primaryColor="@color/colorPrimary"
+                    app:met_errorColor="@color/colorAccent" />
             </RelativeLayout>
             <Button
                 android:layout_width="150dp"

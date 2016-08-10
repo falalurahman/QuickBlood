@@ -25,9 +25,11 @@
         android:textColor="@color/colorPrimaryText"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Whatsapp"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_below="@+id/Email"
+        android:layout_toRightOf="@+id/Twitter"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
         android:background="@drawable/dialog_buttons"
@@ -51,18 +53,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:layout_below="@+id/DialogTitle"
         android:background="@drawable/dialog_buttons"
         android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:clickable="true"
         android:id="@+id/Whatsapp"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingRight="15dp"
-        android:layout_marginLeft="10dp"
         android:paddingLeft="15dp"
         android:orientation="vertical">
         <ImageView
@@ -77,11 +78,9 @@
             android:text="Whatsapp"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Email"
-        android:layout_toRightOf="@+id/Facebook"
-        android:layout_marginLeft="10dp"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
+        android:layout_below="@+id/Twitter"
         android:layout_marginTop="10dp"
         android:background="@drawable/dialog_buttons"
         android:gravity="center_horizontal"
@@ -95,7 +94,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/facebook"/>
+            android:src="@drawable/instagram"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,8 +104,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="95dp"
+        android:layout_height="95dp"
         android:layout_below="@+id/DialogTitle"
         android:layout_toRightOf="@+id/Whatsapp"
         android:layout_marginTop="10dp"
@@ -123,7 +122,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/whatsapp"/>
+            android:src="@drawable/email"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -131,6 +130,31 @@
             android:layout_marginTop="5dp"
             android:text="Email"/>
     </LinearLayout>
+        <LinearLayout
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_below="@+id/Whatsapp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/Twitter"
+            android:clickable="true"
+            android:background="@drawable/dialog_buttons"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/twitter"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                android:layout_marginTop="5dp"
+                android:text="Twitter"/>
+        </LinearLayout>
     </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

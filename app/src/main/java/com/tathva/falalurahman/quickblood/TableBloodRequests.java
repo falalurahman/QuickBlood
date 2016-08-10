@@ -14,6 +14,7 @@ public class TableBloodRequests {
     public static final String COLUMN_DISTRICT = "District";
     public static final String COLUMN_VOLUME = "Volume";
     public static final String COLUMN_ADDRESS = "Address";
+    public static final String COLUMN_OTHERDETAILS = "OtherDetails";
     public static final String COLUMN_ISUPLOADED = "isUploaded";
 
     public static void onCreate(SQLiteDatabase sqLiteDatabase){
@@ -29,6 +30,7 @@ public class TableBloodRequests {
                 + COLUMN_DISTRICT + " TEXT NOT NULL, "
                 + COLUMN_VOLUME + " INT NOT NULL, "
                 + COLUMN_ADDRESS + " TEXT, "
+                + COLUMN_OTHERDETAILS + " TEXT, "
                 + COLUMN_ISUPLOADED + " INT NOT NULL "
                 + ");";
         sqLiteDatabase.execSQL(query);

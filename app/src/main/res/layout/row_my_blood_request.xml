@@ -127,6 +127,25 @@
                         android:textColor="@color/colorTertiaryText"
                         android:textSize="13dp" />
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/details_layout"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other Details: "
+                        android:textColor="@color/colorTertiaryText"
+                        android:textSize="13dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/details_textview"
+                        android:text="Malappuram"
+                        android:textColor="@color/colorTertiaryText"
+                        android:textSize="13dp" />
+                </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="70dp"

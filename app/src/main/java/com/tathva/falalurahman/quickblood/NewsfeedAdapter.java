@@ -28,6 +28,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -41,7 +42,7 @@ public class NewsfeedAdapter extends CursorAdapter{
     Context context;
 
     public interface FacebookShareListener{
-        void onShare(String Status,String Link, Uri ImageURL, boolean isRequest);
+        void onShare(String Status,String Link, Uri ImageURL, String WhatsappText, boolean isRequest);
     }
 
     public FacebookShareListener facebookShareListener;
@@ -67,6 +68,7 @@ public class NewsfeedAdapter extends CursorAdapter{
         TextView NameTextView = (TextView) view.findViewById(R.id.name_textview);
         TextView DistrictTextView = (TextView) view.findViewById(R.id.district_textview);
         TextView AddressTextView = (TextView) view.findViewById(R.id.address_textview);
+        TextView DetailsTextView = (TextView) view.findViewById(R.id.details_textview);
         TextView PhoneNumberTextView = (TextView) view.findViewById(R.id.phonenumber_textview);
         TextView EmailTextView = (TextView) view.findViewById(R.id.email_textview);
         TextView BloodGroupTextView = (TextView) view.findViewById(R.id.bloodgroup_textview);
@@ -74,6 +76,7 @@ public class NewsfeedAdapter extends CursorAdapter{
         final ImageView QuickBloodPic = (ImageView) view.findViewById(R.id.quickbloodPic);
         LinearLayout EmailLayout = (LinearLayout) view.findViewById(R.id.email_layout);
         LinearLayout AddressLayout = (LinearLayout) view.findViewById(R.id.address_layout);
+        LinearLayout DetailsLayout = (LinearLayout) view.findViewById(R.id.details_layout);
         final RelativeLayout NotificationLayout = (RelativeLayout) view.findViewById(R.id.notificationLayout);
         RelativeLayout ImageLayout = (RelativeLayout) view.findViewById(R.id.imageLayout);
 
@@ -215,6 +218,7 @@ public class NewsfeedAdapter extends CursorAdapter{
                 PhoneNumberTextView.setText(jsonObject.getString("PhoneNumber"));
                 DistrictTextView.setText(jsonObject.getString("District"));
                 AddressTextView.setText(jsonObject.getString("Address"));
+                DetailsTextView.setText(jsonObject.getString("OtherDetails"));
                 BloodGroupTextView.setText(jsonObject.getString("BloodGroup"));
                 EmailTextView.setText(jsonObject.getString("Email"));
                 QuantityTextView.setText(Integer.toString(jsonObject.getInt("Volume")));
@@ -232,6 +236,11 @@ public class NewsfeedAdapter extends CursorAdapter{
                     AddressLayout.setVisibility(View.GONE);
                 }else {
                     AddressLayout.setVisibility(View.VISIBLE);
+                }
+                if(jsonObject.getString("OtherDetails").equals("")){
+                    DetailsLayout.setVisibility(View.GONE);
+                }else {
+                    DetailsLayout.setVisibility(View.VISIBLE);
                 }
                 ColorGenerator colorGenerator = ColorGenerator.MATERIAL;
                 int color = colorGenerator.getColor(time);
@@ -259,14 +268,48 @@ public class NewsfeedAdapter extends CursorAdapter{
                     if(images.get(position) != null) {
                         facebookShareListener.onShare(cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_STATUS)),
                                 cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_LINK)),
-                                Uri.parse(MediaStore.Images.Media.insertImage(context.getContentResolver(), images.get(position), "QuickBlood", null)), false);
+                                Uri.parse(MediaStore.Images.Media.insertImage(context.getContentResolver(), images.get(position), "QuickBlood", null)),null, false);
                     }else {
                         facebookShareListener.onShare(cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_STATUS)),
                                 cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_LINK)),
-                                null, false);
+                                null,null, false);
                     }
                 }else {
-                    facebookShareListener.onShare("","",Uri.parse(MediaStore.Images.Media.insertImage(context.getContentResolver(),  viewToBitmap(NotificationLayout), "QuickBlood Blood Request", null)),true);
+                    cursor.moveToPosition(position);
+                    String status = cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_STATUS));
+                    String name="",phoneNumber="", district="",address="",details="",bloodGroup="",email="",quantity="",timestamp="";
+                    try {
+                        JSONObject jsonObject = new JSONObject(status);
+                        name = jsonObject.getString("Name");
+                        phoneNumber = jsonObject.getString("PhoneNumber");
+                        district = jsonObject.getString("District");
+                        address = jsonObject.getString("Address");
+                        details = jsonObject.getString("OtherDetails");
+                        bloodGroup = jsonObject.getString("BloodGroup");
+                        email = jsonObject.getString("Email");
+                        quantity = Integer.toString(jsonObject.getInt("Volume")) + " Units";
+                        Long RequestTime = Long.parseLong(jsonObject.getString("TimeStamp"));
+                        DateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy");
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.setTimeInMillis(RequestTime);
+                        timestamp = dateFormat.format(calendar.getTime());
+                    }catch (JSONException exception){
+                        exception.printStackTrace();
+                    }
+
+                    String WhatsappText = "*QuickBlood Blood Request*\n";
+                    WhatsappText += "*Name :* " + name+ "\n";
+                    WhatsappText += "*Blood Group :* " + bloodGroup+ "\n";
+                    WhatsappText += "*Blood Volume :* " + quantity + "\n";
+                    WhatsappText += "*Phone Number :* " + phoneNumber + "\n";
+                    if(!email.equals(""))
+                        WhatsappText += "*Email :* " + email+ "\n";
+                    WhatsappText += "*District :* " + district + "\n";
+                    if(!address.equals(""))
+                        WhatsappText += "*Address :* " + address+ "\n";
+                    if(!details.equals(""))
+                        WhatsappText += "*Other Details :* " + details ;
+                    facebookShareListener.onShare("","",Uri.parse(MediaStore.Images.Media.insertImage(context.getContentResolver(),  viewToBitmap(NotificationLayout), "QuickBlood Blood Request", null)),WhatsappText,true);
                 }
             }
         });

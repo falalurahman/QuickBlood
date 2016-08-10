@@ -13,6 +13,7 @@ public class TableNotifications {
     public static final String COLUMN_BLOODGROUP = "BloodGroup";
     public static final String COLUMN_DISTRICT = "District";
     public static final String COLUMN_ADDRESS = "Address";
+    public static final String COLUMN_OTHERDETAILS = "OtherDetails";
     public static final String COLUMN_VOLUME = "Volume";
     public static final String COLUMN_ISSEEN = "IsSeen";
 
@@ -28,6 +29,7 @@ public class TableNotifications {
                 + COLUMN_BLOODGROUP + " TEXT NOT NULL, "
                 + COLUMN_DISTRICT + " TEXT NOT NULL, "
                 + COLUMN_ADDRESS + " TEXT, "
+                + COLUMN_OTHERDETAILS + " TEXT, "
                 + COLUMN_VOLUME + " INT NOT NULL, "
                 + COLUMN_ISSEEN + " INT NOT NULL "
                 + ");";

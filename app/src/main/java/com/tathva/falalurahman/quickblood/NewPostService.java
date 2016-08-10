@@ -47,6 +47,7 @@ public class NewPostService extends IntentService {
                                 contentValues.put(TableQBPosts.COLUMN_USERNAME, jsonObject.getString("Username"));
                                 contentValues.put(TableQBPosts.COLUMN_TIMESTAMP, jsonObject.getString("TimeStamp"));
                                 contentValues.put(TableQBPosts.COLUMN_STATUS, jsonObject.getString("Status"));
+                                Log.i("QB",jsonObject.getString("Status"));
                                 contentValues.put(TableQBPosts.COLUMN_LINK, jsonObject.getString("Link"));
                                 contentValues.put(TableQBPosts.COLUMN_IMAGE, jsonObject.getString("Image"));
                                 Uri uri = DatabaseContentProvider.QBPOST_URI;

@@ -42,6 +42,7 @@ public class UploadRequestService extends IntentService {
                 final String BloodGroup = cursor.getString(cursor.getColumnIndex(TableBloodRequests.COLUMN_BLOODGROUP));
                 final String District = cursor.getString(cursor.getColumnIndex(TableBloodRequests.COLUMN_DISTRICT));
                 final String Address = cursor.getString(cursor.getColumnIndex(TableBloodRequests.COLUMN_ADDRESS));
+                final String Details = cursor.getString(cursor.getColumnIndex(TableBloodRequests.COLUMN_OTHERDETAILS));
                 final int Volume = cursor.getInt(cursor.getColumnIndex(TableBloodRequests.COLUMN_VOLUME));
                 StringRequest stringRequest = new StringRequest(Request.Method.POST,getString(R.string.upload_blood_request_url),
                         new Response.Listener<String>() {
@@ -70,6 +71,7 @@ public class UploadRequestService extends IntentService {
                         params.put("BloodGroup",BloodGroup);
                         params.put("District",District);
                         params.put("Address", Address);
+                        params.put("OtherDetails",Details);
                         params.put("Volume",Integer.toString(Volume));
                         return params;
                     }

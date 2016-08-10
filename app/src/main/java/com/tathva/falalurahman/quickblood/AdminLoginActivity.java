@@ -3,6 +3,7 @@ package com.tathva.falalurahman.quickblood;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class AdminLoginActivity extends AppCompatActivity
@@ -38,6 +41,40 @@ public class AdminLoginActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(false)
+                .cacheOnDisk(true)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .build();
+        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .defaultDisplayImageOptions(defaultOptions)
+                .threadPoolSize(5)
+                .diskCacheExtraOptions(480,320,null)
+                .build();
+        ImageLoader.getInstance().init(configuration);
+
+        ImageLoader.getInstance().loadImage("assets://blur_background.jpg", new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                findViewById(R.id.background).setBackground(new BitmapDrawable(getResources(),loadedImage));
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -51,18 +88,6 @@ public class AdminLoginActivity extends AppCompatActivity
         navigationView.setCheckedItem(R.id.nav_admin_login);
         navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
         navigationView.getMenu().findItem(R.id.nav_admin_login).setVisible(true);
-
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
-                .cacheInMemory(false)
-                .cacheOnDisk(true)
-                .bitmapConfig(Bitmap.Config.RGB_565)
-                .build();
-        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(getApplicationContext())
-                .defaultDisplayImageOptions(defaultOptions)
-                .threadPoolSize(5)
-                .diskCacheExtraOptions(480,320,null)
-                .build();
-        ImageLoader.getInstance().init(configuration);
 
         AdminPic = (ImageView) findViewById(R.id.adminloginPic);
         ImageLoader.getInstance().displayImage("assets://admin_login.png",AdminPic);

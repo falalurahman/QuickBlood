@@ -30,9 +30,10 @@ public class BloodDetails extends AppCompatActivity {
     MaterialBetterSpinner districtSpinner;
     MaterialEditText quantityEditText;
     MaterialEditText addressEditText;
+    MaterialEditText detailsEditText;
     Button signUpButton;
 
-    String name, phoneNumber, email, bloodGroup, district, quantity, address;
+    String name, phoneNumber, email, bloodGroup, district, quantity, address, details;
     boolean nameError=true, phoneNumberError=true, bloodGroupError=true, districtError=true, emailError = false, quantityError=true;
 
     @Override
@@ -181,6 +182,7 @@ public class BloodDetails extends AppCompatActivity {
         });
 
         addressEditText = (MaterialEditText) findViewById(R.id.address_edit_text);
+        detailsEditText = (MaterialEditText) findViewById(R.id.details_edit_text);
 
         signUpButton = (Button) findViewById(R.id.sign_up_button);
         signUpButton.setOnClickListener(new View.OnClickListener() {
@@ -230,6 +232,7 @@ public class BloodDetails extends AppCompatActivity {
                     quantityError=false;
                 }
                 address = addressEditText.getText().toString();
+                details = detailsEditText.getText().toString();
                 if(!nameError && !phoneNumberError && !emailError && !bloodGroupError && !districtError && !quantityError){
                     ContentValues contentValues = new ContentValues();
                     contentValues.put("TimeStamp",Long.toString(System.currentTimeMillis()));
@@ -240,6 +243,7 @@ public class BloodDetails extends AppCompatActivity {
                     contentValues.put("District",district);
                     contentValues.put("Volume",Integer.parseInt(quantity));
                     contentValues.put("Address",address);
+                    contentValues.put("OtherDetails",details);
                     contentValues.put("isUploaded",0);
                     getContentResolver().insert(DatabaseContentProvider.BLOODREQUESTS_URI,contentValues);
                     Intent intent = new Intent(BloodDetails.this,UploadRequestService.class);

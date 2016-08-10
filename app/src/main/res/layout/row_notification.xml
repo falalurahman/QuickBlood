@@ -131,6 +131,25 @@
                     android:textSize="12dp"
                     android:textColor="@color/colorSecondaryText"/>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/details_layout"
+                android:layout_marginTop="0dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other Details: "
+                    android:textSize="12dp"
+                    android:textColor="@color/colorPrimaryText"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Details"
+                    android:text="Malappuram"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorSecondaryText"/>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="60dp"

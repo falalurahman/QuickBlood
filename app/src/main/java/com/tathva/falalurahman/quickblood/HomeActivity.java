@@ -598,7 +598,7 @@ public class HomeActivity extends AppCompatActivity
     }
 
     @Override
-    public void onShare(String Status,final String Link,final Uri ImageURL, final boolean isRequest) {
+    public void onShare(String Status,final String Link,final Uri ImageURL, final String WhatsappText, final boolean isRequest) {
         Status = Status.replaceAll("<b>","");
         Status = Status.replaceAll("</b>","");
         Status = Status.replaceAll("<br>","\n");
@@ -665,19 +665,19 @@ public class HomeActivity extends AppCompatActivity
                         Intent intent = new Intent(Intent.ACTION_SEND);
                         intent.setType("text/plain");
                         intent.setPackage("com.whatsapp");
-                        if(ImageURL != null) {
+                        if(ImageURL != null && !isRequest) {
                             Uri uri = ImageURL;
                             intent.setType("image/*");
                             intent.putExtra(Intent.EXTRA_STREAM, uri);
                         }
-                        if (!newStatus.equals("") && !Link.equals(""))
+                        if (!newStatus.equals("") && !Link.equals("") && !isRequest)
                             intent.putExtra(Intent.EXTRA_TEXT, newStatus + "\nLink: " + Link);
-                        else if (!newStatus.equals(""))
+                        else if (!newStatus.equals("") && !isRequest)
                             intent.putExtra(Intent.EXTRA_TEXT, newStatus);
-                        else if (!Link.equals(""))
+                        else if (!Link.equals("") && !isRequest)
                             intent.putExtra(Intent.EXTRA_TEXT, "Link: " + Link);
                         if(isRequest)
-                            intent.putExtra(Intent.EXTRA_TEXT, "Download QuickBlood at: " + Uri.parse("http://play.google.com/store/apps/details?id=com.tathva.falalurahman.quickblood")  +". And Start Donating Your Blood.");
+                            intent.putExtra(Intent.EXTRA_TEXT,WhatsappText );
                         startActivity(Intent.createChooser(intent, "Share App..."));
                     }else {
                         Toast.makeText(HomeActivity.this,"Whatsapp Is Not Installed In Your Mobile",Toast.LENGTH_LONG).show();
@@ -730,6 +730,7 @@ public class HomeActivity extends AppCompatActivity
                     if(ImageURL != null) {
                         Uri uri = ImageURL;
                         intent.setType("image/*");
+                        intent.setData(Uri.parse("mailto:"));
                         intent.putExtra(Intent.EXTRA_STREAM, uri);
                     }
                     if (!newStatus.equals("") && !Link.equals(""))
@@ -743,6 +744,36 @@ public class HomeActivity extends AppCompatActivity
                         intent.putExtra(Intent.EXTRA_TEXT, "Download QuickBlood at: " + Uri.parse("http://play.google.com/store/apps/details?id=com.tathva.falalurahman.quickblood") + ". And Start Donating Your Blood.");
                     }
                     startActivity(Intent.createChooser(intent, "Complete Action Using"));
+                    dialog.dismiss();
+                }
+            });
+        }
+        LinearLayout Twitter = (LinearLayout) dialog.findViewById(R.id.Twitter);
+        if(Twitter!=null){
+            Twitter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if( isAppInstalled("com.twitter.android") ) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.setPackage("com.twitter.android");
+                        if(ImageURL != null) {
+                            Uri uri = ImageURL;
+                            intent.setType("image/*");
+                            intent.putExtra(Intent.EXTRA_STREAM, uri);
+                        }
+                        if (!newStatus.equals("") && !Link.equals(""))
+                            intent.putExtra(Intent.EXTRA_TEXT, newStatus + "\nLink: " + Link);
+                        else if (!newStatus.equals(""))
+                            intent.putExtra(Intent.EXTRA_TEXT, newStatus);
+                        else if (!Link.equals(""))
+                            intent.putExtra(Intent.EXTRA_TEXT, "Link: " + Link);
+                        if(isRequest)
+                            intent.putExtra(Intent.EXTRA_TEXT, "Download QuickBlood at: " + Uri.parse("http://play.google.com/store/apps/details?id=com.tathva.falalurahman.quickblood")  +". And Start Donating Your Blood.");
+                        startActivity(Intent.createChooser(intent, "Share App..."));
+                    }else {
+                        Toast.makeText(HomeActivity.this,"Twitter Is Not Installed In Your Mobile",Toast.LENGTH_LONG).show();
+                    }
                     dialog.dismiss();
                 }
             });

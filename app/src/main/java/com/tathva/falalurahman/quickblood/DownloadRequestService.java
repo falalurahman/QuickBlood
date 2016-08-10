@@ -178,6 +178,7 @@ public class DownloadRequestService extends IntentService {
                                     contentValues.put(TableNotifications.COLUMN_DISTRICT, jsonObject.getString("District"));
                                     contentValues.put(TableNotifications.COLUMN_ADDRESS, jsonObject.getString("Address"));
                                     contentValues.put(TableNotifications.COLUMN_VOLUME, jsonObject.getInt("Volume"));
+                                    contentValues.put(TableNotifications.COLUMN_OTHERDETAILS, jsonObject.getString("OtherDetails"));
                                     contentValues.put(TableNotifications.COLUMN_ISSEEN, 0);
                                     Uri uri = DatabaseContentProvider.NOTIFICATIONS_URI;
                                     getContentResolver().insert(uri, contentValues);
