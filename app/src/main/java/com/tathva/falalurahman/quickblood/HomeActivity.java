@@ -377,7 +377,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, AboutUsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -387,7 +387,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, BloodDonorsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -397,7 +397,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, BloodDirectoryActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -407,7 +407,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, BloodRequestsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -417,7 +417,7 @@ public class HomeActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, NotificationsActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
@@ -563,7 +563,11 @@ public class HomeActivity extends AppCompatActivity
             Intent intent = new Intent(this, ShareActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } else if (id == R.id.nav_blood_donation_forum){
+        } else if (id == R.id.nav_emergency){
+            Intent intent = new Intent(this, EmergencyContacts.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }else if (id == R.id.nav_blood_donation_forum){
             Intent intent = new Intent(this, BloodDonationActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
@@ -619,7 +623,7 @@ public class HomeActivity extends AppCompatActivity
                             builder.setContentTitle("QuickBlood");
                             builder.setImageUrl(Uri.parse("http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/imageurl.jpg"));
                             builder.setShareHashtag(new ShareHashtag.Builder()
-                                    .setHashtag("#tathva16")
+                                    .setHashtag("#QuickBlood")
                                     .build());
                             if (!newStatus.equals("")) {
                                 builder.setContentDescription(newStatus);
@@ -645,7 +649,7 @@ public class HomeActivity extends AppCompatActivity
                         SharePhoto photo = builder.build();
                         SharePhotoContent content = new SharePhotoContent.Builder()
                                 .setShareHashtag(new ShareHashtag.Builder()
-                                        .setHashtag("#tathva16")
+                                        .setHashtag("#QuickBlood")
                                         .build())
                                 .addPhoto(photo)
                                 .build();

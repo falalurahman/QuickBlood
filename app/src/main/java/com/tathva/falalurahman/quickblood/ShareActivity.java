@@ -104,10 +104,11 @@ public class ShareActivity extends AppCompatActivity
                     Uri uri = Uri.parse("http://play.google.com/store/apps/details?id=com.tathva.falalurahman.quickblood");
                     ShareLinkContent.Builder builder = new ShareLinkContent.Builder();
                     builder.setContentUrl(uri);
+                    builder.setImageUrl(Uri.parse("http://tathva.org/tathva.org/tathva16/aavishkar16/quickblood/imageurl.jpg"));
                     builder.setContentTitle("QuickBlood");
                     builder.setContentDescription("Download QuickBlood and start donating your Blood.");
                     builder.setShareHashtag(new ShareHashtag.Builder()
-                    .setHashtag("#tathva16")
+                    .setHashtag("#QuickBlood")
                     .build());
                     ShareLinkContent shareLinkContent = builder.build();
                     ShareDialog shareDialog = new ShareDialog(ShareActivity.this);
@@ -127,7 +128,7 @@ public class ShareActivity extends AppCompatActivity
                     Intent intent = new Intent(Intent.ACTION_SEND);
                     intent.setType("text/plain");
                     intent.setPackage("com.whatsapp");
-                    intent.putExtra(Intent.EXTRA_TEXT, "Download QuickBlood at: " + uri  +". And Start Donating Your Blood.");
+                    intent.putExtra(Intent.EXTRA_TEXT, "*Download QuickBlood at:* " + uri  +". And Start Donating Your Blood.");
                     startActivity(Intent.createChooser(intent, "Share App..."));
                 }else {
                     Toast.makeText(ShareActivity.this,"Whatsapp Is Not Installed In Your Mobile",Toast.LENGTH_LONG).show();
@@ -271,6 +272,9 @@ public class ShareActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             super.onBackPressed();
         }
     }
@@ -339,6 +343,10 @@ public class ShareActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_notification){
             Intent intent = new Intent(this, NotificationsActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        } else if (id == R.id.nav_emergency){
+            Intent intent = new Intent(this, EmergencyContacts.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_blood_donation_forum){

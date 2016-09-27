@@ -42,6 +42,10 @@
                     android:icon="@drawable/ic_share_black_36dp"
                     android:title="Share" />
                 <item
+                    android:id="@+id/nav_emergency"
+                    android:icon="@drawable/blood"
+                    android:title="Emergency Contacts" />
+                <item
                     android:id="@+id/nav_blood_donation_forum"
                     android:icon="@drawable/blood"
                     android:title="Blood Donors Kerala" />

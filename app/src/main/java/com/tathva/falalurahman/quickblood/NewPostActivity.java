@@ -93,26 +93,17 @@ public class NewPostActivity extends AppCompatActivity {
 
         final SharedPreferences sharedPreferences = getSharedPreferences("QuickBlood",MODE_PRIVATE);
         if(sharedPreferences.getBoolean("isAdmin",false)){
-            final String username = sharedPreferences.getString("Username","");
 
             ProfilePicture = (ImageView) findViewById(R.id.profile_pic);
-            if(username.equals("Tathva 16")){
-                ImageLoader.getInstance().displayImage("drawable://" + R.drawable.tathva16, ProfilePicture);
-            }else if(username.equals("Blood Donation Forum")){
-                ImageLoader.getInstance().displayImage("drawable://" + R.drawable.blood_donor,ProfilePicture);
-            }
+
+            ImageLoader.getInstance().displayImage("drawable://" + R.drawable.blood_donor,ProfilePicture);
+
             ProfilePicture.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(username.equals("Tathva 16")){
-                        Intent intent = new Intent(NewPostActivity.this,AboutUsActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                    }else if(username.equals("Blood Donation Forum")){
                         Intent intent = new Intent(NewPostActivity.this,BloodDonationActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
-                    }
                 }
             });
         }else {

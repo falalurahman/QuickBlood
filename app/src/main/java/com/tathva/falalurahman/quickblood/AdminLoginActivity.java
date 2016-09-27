@@ -103,12 +103,7 @@ public class AdminLoginActivity extends AppCompatActivity
                 String password = PasswordEditText.getText().toString();
                 SharedPreferences sharedPreferences = getSharedPreferences("QuickBlood", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                if( username.equals("tathva16") && password.equals("aavishkar16") ){
-                    editor.putBoolean("isAdmin",true);
-                    editor.putString("Username","Tathva 16");
-                    editor.apply();
-                    GoToPreviousActivity();
-                } else if( username.equals("blood_donors_kerala") && password.equals("kerala16") ){
+                if( username.equals("blood_donors_kerala") && password.equals("kerala16") ){
                     editor.putBoolean("isAdmin",true);
                     editor.putString("Username","Blood Donors Kerala");
                     editor.apply();
@@ -138,6 +133,9 @@ public class AdminLoginActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            Intent intent = new Intent(this, HomeActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
             super.onBackPressed();
         }
     }
@@ -170,6 +168,10 @@ public class AdminLoginActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_share){
             Intent intent = new Intent(this, ShareActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        } else if (id == R.id.nav_emergency){
+            Intent intent = new Intent(this, EmergencyContacts.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_blood_donation_forum){

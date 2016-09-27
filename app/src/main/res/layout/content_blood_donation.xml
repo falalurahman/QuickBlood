@@ -19,10 +19,6 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-            <ImageView
-                android:layout_width="350dp"
-                android:layout_height="350dp"
-                android:src="@drawable/tathva16"/>
             <TextView
                 android:layout_width="match_parent"
                 android:paddingRight="40dp"
@@ -38,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Blood Donation Forum, Kerala is the something something. Ivide write up venam and profile pic"
+                android:text="Blood Donors Kerala is the state’s voluntary organization conceived in 2011, which has since established its presence in all of Kerala’s districts and abroad. Armed with the mission of making blood available to those in immediate need, the BDK organizes blood donation camps and awareness programs across the state, and also maintains a list of voluntary blood donors."
                 android:layout_marginTop="10dp"
                 android:textSize="16dp"
                 android:textColor="@color/colorSecondaryText"/>

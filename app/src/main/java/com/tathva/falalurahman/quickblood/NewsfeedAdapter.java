@@ -73,7 +73,6 @@ public class NewsfeedAdapter extends CursorAdapter{
         TextView EmailTextView = (TextView) view.findViewById(R.id.email_textview);
         TextView BloodGroupTextView = (TextView) view.findViewById(R.id.bloodgroup_textview);
         TextView QuantityTextView = (TextView) view.findViewById(R.id.quantity_textview);
-        final ImageView QuickBloodPic = (ImageView) view.findViewById(R.id.quickbloodPic);
         LinearLayout EmailLayout = (LinearLayout) view.findViewById(R.id.email_layout);
         LinearLayout AddressLayout = (LinearLayout) view.findViewById(R.id.address_layout);
         LinearLayout DetailsLayout = (LinearLayout) view.findViewById(R.id.details_layout);
@@ -82,10 +81,7 @@ public class NewsfeedAdapter extends CursorAdapter{
 
         final String username = cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_USERNAME));
         Username.setText(username);
-            if (username.equals("Tathva 16")) {
-                ImageLoader.getInstance().displayImage("assets://tathva16.jpg", profilePic);
-                profilePic.setTag(true);
-            } else if (username.equals("Blood Donors Kerala")) {
+            if (username.equals("Blood Donors Kerala")) {
                 ImageLoader.getInstance().displayImage("assets://blood_donor.jpg", profilePic);
                 profilePic.setTag(true);
             } else if (username.equals("QuickBlood Blood Request")) {
@@ -95,11 +91,7 @@ public class NewsfeedAdapter extends CursorAdapter{
         Username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.equals("Tathva 16")){
-                    Intent intent = new Intent(context,AboutUsActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    context.startActivity(intent);
-                }else if(username.equals("Blood Donors Kerala")){
+                if(username.equals("Blood Donors Kerala")){
                     Intent intent = new Intent(context,BloodDonationActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(intent);
@@ -109,11 +101,7 @@ public class NewsfeedAdapter extends CursorAdapter{
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.equals("Tathva 16")){
-                    Intent intent = new Intent(context,AboutUsActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    context.startActivity(intent);
-                }else if(username.equals("Blood Donors Kerala")){
+                if(username.equals("Blood Donors Kerala")){
                     Intent intent = new Intent(context,BloodDonationActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     context.startActivity(intent);
@@ -191,27 +179,7 @@ public class NewsfeedAdapter extends CursorAdapter{
             NotificationLayout.setVisibility(View.VISIBLE);
             ShareButton.setVisibility(View.VISIBLE);
             try {
-                    ImageLoader.getInstance().displayImage("assets://logo_back.png",QuickBloodPic, new ImageLoadingListener() {
-                        @Override
-                        public void onLoadingStarted(String imageUri, View view) {
-
-                        }
-
-                        @Override
-                        public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-                        }
-
-                        @Override
-                        public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                            profilePic1.setImageBitmap(loadedImage);
-                        }
-
-                        @Override
-                        public void onLoadingCancelled(String imageUri, View view) {
-
-                        }
-                    });
+                    ImageLoader.getInstance().displayImage("assets://logo_back.png",profilePic1);
                 String status = cursor.getString(cursor.getColumnIndex(TableQBPosts.COLUMN_STATUS));
                 JSONObject jsonObject = new JSONObject(status);
                 NameTextView.setText(jsonObject.getString("Name"));

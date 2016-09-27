@@ -18,13 +18,13 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.TextView;
 
-public class AboutUsActivity extends AppCompatActivity
+public class EmergencyContacts extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_emergency_contacts);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -44,14 +44,14 @@ public class AboutUsActivity extends AppCompatActivity
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_admin_login).setVisible(true);
         }
-        navigationView.setCheckedItem(R.id.nav_about_us);
+        navigationView.setCheckedItem(R.id.nav_emergency);
     }
 
     @Override
     protected void onPostResume() {
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.nav_about_us);
+        navigationView.setCheckedItem(R.id.nav_emergency);
         super.onPostResume();
     }
 
@@ -80,7 +80,7 @@ public class AboutUsActivity extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_admin_login) {
             Intent intent = new Intent(this, AdminLoginActivity.class);
-            intent.putExtra("PreviousActivity", "AboutUsActivity");
+            intent.putExtra("PreviousActivity", "ShareActivity");
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         } else if (id == R.id.nav_logout){
@@ -94,7 +94,7 @@ public class AboutUsActivity extends AppCompatActivity
             TextView Confirm = (TextView) dialog.findViewById(R.id.Confirm);
             Confirm.setText("YES");
             final NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-            navigationView.setNavigationItemSelectedListener(AboutUsActivity.this);
+            navigationView.setNavigationItemSelectedListener(EmergencyContacts.this);
             Confirm.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -104,7 +104,7 @@ public class AboutUsActivity extends AppCompatActivity
                     editor.apply();
                     navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
                     navigationView.getMenu().findItem(R.id.nav_admin_login).setVisible(true);
-                    navigationView.setCheckedItem(R.id.nav_about_us);
+                    navigationView.setCheckedItem(R.id.nav_share);
                     dialog.dismiss();
                 }
             });
@@ -113,7 +113,7 @@ public class AboutUsActivity extends AppCompatActivity
             Cancel.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    navigationView.setCheckedItem(R.id.nav_about_us);
+                    navigationView.setCheckedItem(R.id.nav_share);
                     dialog.cancel();
                 }
             });
@@ -138,12 +138,12 @@ public class AboutUsActivity extends AppCompatActivity
             Intent intent = new Intent(this, ShareActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-        } else if (id == R.id.nav_emergency){
-            Intent intent = new Intent(this, EmergencyContacts.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(intent);
         } else if (id == R.id.nav_blood_donation_forum){
             Intent intent = new Intent(this, BloodDonationActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        } else if (id == R.id.nav_about_us){
+            Intent intent = new Intent(this, AboutUsActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         }
@@ -152,6 +152,4 @@ public class AboutUsActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }

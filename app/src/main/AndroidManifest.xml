@@ -159,6 +159,10 @@
             android:name=".AboutUsActivity"
             android:label="@string/title_activity_about_us"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EmergencyContacts"
+            android:label="@string/title_activity_emergency_contacts"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

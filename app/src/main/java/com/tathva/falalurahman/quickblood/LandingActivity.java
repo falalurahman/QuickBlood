@@ -31,13 +31,14 @@ public class LandingActivity extends AppCompatActivity {
     final int MY_PERMISSIONS_ACCESS_WIFI_STATE = 115;
     final int MY_PERMISSIONS_VIBRATE = 116;
 
-    ImageView Syringe;
-    ImageView Drop1;
-    ImageView Drop2;
-    ImageView Drop3;
     ImageView Background;
-
-    int loadingTime = 0;
+    TextView Quote;
+    String quotes[] = {"Tears of a mother cannot save her Child. But your Blood can!!!",
+            "The Blood Donor of today may be recipient of tomorrow.",
+            "To the young and healthy it’s no loss. To sick it’s hope of life. Donate Blood to give back life.",
+            "From me to you—a gift of life.",
+            "Your Droplets Of Blood May Create Ocean Of Happiness.",
+            "A few minutes of your life,A lifetime for someone else"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,47 +59,28 @@ public class LandingActivity extends AppCompatActivity {
                 .build();
         ImageLoader.getInstance().init(configuration);
 
-        Syringe = (ImageView) findViewById(R.id.syringe);
-        Drop1 = (ImageView) findViewById(R.id.drop1);
-        Drop2 = (ImageView) findViewById(R.id.drop2);
-        Drop3 = (ImageView) findViewById(R.id.drop3);
         Background = (ImageView) findViewById(R.id.background);
+        Quote = (TextView) findViewById(R.id.quote);
+
+        int index = (int )(Math.random() * 6);
+        Quote.setText(quotes[index]);
+
 
         ImageLoader.getInstance().displayImage("assets://background_landing.jpg", Background);
-        ImageLoader.getInstance().displayImage("assets://loading3.png", Drop3);
-        ImageLoader.getInstance().displayImage("assets://loading1.png", Drop2);
-        ImageLoader.getInstance().displayImage("assets://loading1.png", Drop1);
-        ImageLoader.getInstance().displayImage("assets://loading0.png", Syringe);
-
-        Drop1.setVisibility(View.INVISIBLE);
-        Drop2.setVisibility(View.INVISIBLE);
-        Drop3.setVisibility(View.INVISIBLE);
 
         Runnable runnable = new Runnable() {
 
             Handler handler = new Handler() {
                 @Override
                 public void handleMessage(Message msg) {
-                    if(loadingTime == 1) {
-                        Drop1.setVisibility(View.VISIBLE);
-                        run();
-                    } else if(loadingTime == 2) {
-                        Drop2.setVisibility(View.VISIBLE);
-                        run();
-                    } else if(loadingTime == 3) {
-                        Drop3.setVisibility(View.VISIBLE);
-                        run();
-                    } else if(loadingTime == 4) {
-                        ImageLoader.getInstance().clearMemoryCache();
-                        checkPermission();
-                    }
-
+                    ImageLoader.getInstance().clearMemoryCache();
+                    checkPermission();
                 }
             };
 
             @Override
             public void run() {
-                long futureTime = System.currentTimeMillis() + 750;
+                long futureTime = System.currentTimeMillis() + 3000;
                 while (System.currentTimeMillis() < futureTime){
                     synchronized (this){
                         try{
@@ -118,7 +100,6 @@ public class LandingActivity extends AppCompatActivity {
                         }
                     }
                 }
-                loadingTime++;
                 handler.sendEmptyMessage(0);
             }
         };

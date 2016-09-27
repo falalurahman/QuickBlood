@@ -19,10 +19,6 @@
             android:paddingTop="@dimen/activity_vertical_margin"
             android:orientation="vertical"
             android:gravity="center_horizontal">
-            <ImageView
-                android:layout_width="350dp"
-                android:layout_height="350dp"
-                android:src="@drawable/tathva16"/>
             <TextView
                 android:layout_width="match_parent"
                 android:paddingRight="40dp"
@@ -38,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:text="Tathva '16  is the something something. Ivide write up venam and profile pic"
+                android:text="For us NITCians, Aavishkaar, the social initiative of Tathva 16, has always been an opportunity to realize our dreams for a brighter future. A future without poverty. Without catastrophes. It gives us the chance to bring out the social servant in all of us and use the skills and knowledge acquired from our time as engineering students,  to serve the society and those in need of a helping hand. With this blood donation app, we aim to provide a platform for donors and patients alike, to put an end to last minute rushes in life or death situations. Maybe a day will come, when we will have to go through no hassles whatsoever to find donors in times of need. But until then, let us do our bit to create a safe and secure future for the world around us."
                 android:layout_marginTop="10dp"
                 android:textSize="16dp"
                 android:textColor="@color/colorSecondaryText"/>
